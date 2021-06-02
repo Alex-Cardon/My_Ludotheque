@@ -4,43 +4,63 @@ GET http://localhost:3000/api/null
 ### Récupération des tous les auteurs
 GET http://localhost:3000/api/authors
 
-### Récupération des tous les éditeurs
-GET http://localhost:3000/api/publishers
-
 ### Récupération d'un auteur
-GET http://localhost:3000/api/authors/1
+GET http://localhost:3000/api/authors/4
 
 ### Ajout d'auteur
 POST http://localhost:3000/api/authors
 Content-Type: application/json
 
 {
-    "firstname": "Jules",
-    "lastname": "Verne",
-    "country_iso_2": "fr",
-    "birthdate": "1828-02-08",
-    "deathdate": "1905-03-24"
+    "firstname": "Klau",
+    "lastname": "Teuber"
 }
 
-### Ajout d'un publisher
+### Update d'auteur
+PATCH http://localhost:3000/api/authors/4
+Content-Type: application/json
+
+{
+    "firstname": "Klaus"
+}
+
+
+### delete d'auteur
+DELETE http://localhost:3000/api/authors/4
+
+_____________________________________________________
+_____________________________________________________
+
+
+### Récupération des tous les éditeurs
+GET http://localhost:3000/api/publishers
+
+### Récupération d'un éditeur
+GET http://localhost:3000/api/publishers/3
+
+### Ajout d'un éditeur
 POST http://localhost:3000/api/publishers
 Content-Type: application/json
 
 {
-    "name": "Plon",
-    "country_iso_2": "fr"
+    "name": "Kosmos"
 }
 
-### Update d'auteur
-PATCH http://localhost:3000/api/authors/2
+### Update du éditeur
+PATCH http://localhost:3000/api/publishers/3
 Content-Type: application/json
 
 {
-    "country_iso_2": "us"
+    "name": "kosmoss"
 }
 
-### delete d'auteur
-DELETE http://localhost:3000/api/authors/11
+
+### delete d'un éditeur
+DELETE http://localhost:3000/api/publishers/3
+
+
+_____________________________________________________
+_____________________________________________________
 
 
 ### Récupération de tous les livres

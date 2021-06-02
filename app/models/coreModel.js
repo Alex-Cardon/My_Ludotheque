@@ -31,10 +31,8 @@ class CoreModel {
      * Setter pour les données de l'entité
      */
     set data(values) {
-        for (const field of this.contructor.fields) {
-            // values.birthdate ?
+        for (const field of this.constructor.fields) {
             if (values[field]) {
-                //this.dataValues.birthdate = values.birthdate
                 this.dataValues[field] = values[field];
             }
         }
@@ -72,7 +70,7 @@ class CoreModel {
     };
 
     /**
-     * Ajout d'un entité
+     * Ajout d'une entité
      */
     async insert() {
 
@@ -113,9 +111,7 @@ class CoreModel {
 
         const preparedQuery = {
 
-            text: `DELETE FROM "${this.constructor.tableName}" WHERE id = $1`/*`
-                SELECT * FROM delete_${this.constructor.tableName}($1)
-            `*/,
+            text: `DELETE FROM "${this.constructor.tableName}" WHERE id = $1`,
             values: [this.dataValues.id]
         };
 

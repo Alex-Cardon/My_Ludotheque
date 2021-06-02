@@ -8,4 +8,9 @@ const {
     updateSchema: publisherUpdateSchema,
 }  = require('./publisherSchema');
 
-module.exports = { authorInsertSchema, authorUpdateSchema, publisherInsertSchema, publisherUpdateSchema };
+const { 
+    insertSchema: gameInsertSchema, 
+    updateSchema: gameUpdateSchema,
+}  = require('./gameSchema');
+
+module.exports = { authorInsertSchema, authorUpdateSchema, publisherInsertSchema, publisherUpdateSchema, gameInsertSchema, gameUpdateSchema };

@@ -1,6 +1,6 @@
 const models = {
     author: require('../models/authorModel'),
-    book: require('../models/bookModel'),
+    game: require('../models/gameModel'),
     publisher: require('../models/publisherModel')
 };
 
@@ -8,7 +8,6 @@ const controllerFactory = {
 
     getAll(entityName) {
         return async (_, response) => {
-            console.log('controller getAll');
             try {
                 const entities = await models[entityName].find();
                 response.json({ data: entities.map(entity => entity.dataValues) });
@@ -21,7 +20,6 @@ const controllerFactory = {
 
     getById(entityName) {
         return async (request, response, next) => {
-            console.log('controller getById');
             try {
                 const entity = await models[entityName].findByPk(request.params.id);
 
@@ -60,7 +58,6 @@ const controllerFactory = {
         return async (request, response, next) => {
             try {
                 const entity = await models[entityName].findByPk(request.params.id);
-
                 if (!entity) {
                     return next();
                 }
