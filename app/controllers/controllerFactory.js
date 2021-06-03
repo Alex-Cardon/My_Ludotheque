@@ -1,6 +1,7 @@
 const models = {
     author: require('../models/authorModel'),
     game: require('../models/gameModel'),
+    mechanics: require('../models/mechanicsModel'),
     publisher: require('../models/publisherModel')
 };
 
