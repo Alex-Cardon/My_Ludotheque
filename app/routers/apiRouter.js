@@ -15,6 +15,7 @@ const publisherController = require('../controllers/publisherController');
 const gameController = require('../controllers/gameControlle');
 const mechanicsController = require('../controllers/mechanicsController');
 const themeController = require('../controllers/themeController');
+const extensionController = require('../controllers/extensionControlle');
 const errorController = require('../controllers/errorController');
 
 const router = express.Router();
@@ -259,6 +260,52 @@ router.route('/authors')
     .delete(controllerFactory.delete('theme'));
 
 
+
+
+    router.route('/extensions')
+    /**
+     * Liste des extensions
+     * @route GET /theme
+     * @returns {Extension[]} 200 - La liste des extensions
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .get(cache.route('extension'), controllerFactory.getAll('extension'))
+    /**
+     * Ajouter une extension
+     * @route POST /extension
+     * @param {ExtensionInput.model} Extension.body.required - Un objet contenant les informations d'une extension
+     * @returns {Extension} 200 - L'extension' créée
+     * @returns {Error} 500 - Extension déjà présente dans la BDD
+     */
+    .post(validate.body(schemas.extensionInsertSchema), controllerFactory.add('extension'));
+
+
+    router.route('/extensions/:id(\\d+)')
+    /**
+     * Une extension
+     * @route GET /extension/{id}
+     * @param {number} id - Identifiant de l'extension
+     * @returns {Extension.model} 200 - L'extension'
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .get(extensionController.getById)
+    /**
+     * Mise à jour d'une extension
+     * @route PATCH /extension/{id}
+     * @param {number} id - Identifiant de l'extension
+     * @param {ExtensionInput.model} Extension.body.required - Un objet  contenant les informations partiels d'une extension
+     * @returns {Extension.model} 200 - L'extension créée
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .patch(validate.body(schemas.extensionUpdateSchema), controllerFactory.update('extension'))
+    /**
+     * Une extension
+     * @route DELETE /extension/{id}
+     * @param {number} id - Identifiant de l'extension
+     * @returns {Extension} 204 - <empty content>
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .delete(controllerFactory.delete('extension'));
 
 
 // Resource Not Found

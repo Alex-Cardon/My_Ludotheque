@@ -23,6 +23,11 @@ const {
     updateSchema: themeUpdateSchema,
 } = require('./themeSchema');
 
+const {
+    insertSchema: extensionInsertSchema,
+    updateSchema: extensionUpdateSchema,
+} = require('./extensionSchema');
+
 module.exports = {
     authorInsertSchema,
     authorUpdateSchema,
@@ -33,5 +38,7 @@ module.exports = {
     mechanicsInsertSchema,
     mechanicsUpdateSchema,
     themeInsertSchema,
-    themeUpdateSchema
+    themeUpdateSchema,
+    extensionInsertSchema,
+    extensionUpdateSchema
 };

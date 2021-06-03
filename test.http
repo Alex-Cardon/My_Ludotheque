@@ -168,3 +168,37 @@ Content-Type: application/json
 
 ### delete d'un thème
 DELETE http://localhost:3000/api/themes/3
+
+
+_____________________________________________________
+_____________________________________________________
+
+
+### Récupération de toutes les extensions
+GET http://localhost:3000/api/extensions
+
+### Récupération d'une extension
+GET http://localhost:3000/api/extensions/1
+
+### Ajout d'une extension
+POST http://localhost:3000/api/extensions
+Content-Type: application/json
+
+{
+    "title": "test",
+    "year": 2021,
+    "game_id": 2
+}
+
+### Update d'une extension
+PATCH http://localhost:3000/api/extensions/2
+Content-Type: application/json
+
+{
+    "title": "test",
+    "year": 2020,
+    "game_id": 2
+}
+
+### delete d'une extension
+DELETE http://localhost:3000/api/extensions/2

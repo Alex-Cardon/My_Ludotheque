@@ -3,7 +3,9 @@ const models = {
     game: require('../models/gameModel'),
     mechanics: require('../models/mechanicsModel'),
     publisher: require('../models/publisherModel'),
-    theme: require('../models/themeModel')
+    theme: require('../models/themeModel'),
+    extension: require('../models/extensionModel')
+
 };
 
 const controllerFactory = {
