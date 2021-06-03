@@ -1,16 +1,30 @@
-const { 
-    insertSchema: authorInsertSchema, 
+const {
+    insertSchema: authorInsertSchema,
     updateSchema: authorUpdateSchema,
-}  = require('./authorSchema');
+} = require('./authorSchema');
 
-const { 
-    insertSchema: publisherInsertSchema, 
+const {
+    insertSchema: publisherInsertSchema,
     updateSchema: publisherUpdateSchema,
-}  = require('./publisherSchema');
+} = require('./publisherSchema');
 
-const { 
-    insertSchema: gameInsertSchema, 
+const {
+    insertSchema: gameInsertSchema,
     updateSchema: gameUpdateSchema,
-}  = require('./gameSchema');
+} = require('./gameSchema');
 
-module.exports = { authorInsertSchema, authorUpdateSchema, publisherInsertSchema, publisherUpdateSchema, gameInsertSchema, gameUpdateSchema };
+const {
+    insertSchema: mechanicsInsertSchema,
+    updateSchema: mechanicsUpdateSchema,
+} = require('./mechanicsSchema');
+
+module.exports = {
+    authorInsertSchema,
+    authorUpdateSchema,
+    publisherInsertSchema,
+    publisherUpdateSchema,
+    gameInsertSchema,
+    gameUpdateSchema,
+    mechanicsInsertSchema,
+    mechanicsUpdateSchema
+};

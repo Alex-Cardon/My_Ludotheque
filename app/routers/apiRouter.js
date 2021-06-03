@@ -168,18 +168,18 @@ router.route('/authors')
     /**
      * Liste des méchaniques
      * @route GET /mechanics
-     * @returns {Author[]} 200 - La liste des méchaniques
+     * @returns {Mechanics[]} 200 - La liste des méchaniques
      * @returns {Error} 500 - Une erreur serveur
      */
     .get(cache.route('mechanics'), controllerFactory.getAll('mechanics'))
     /**
-     * Ajouter un auteur
+     * Ajouter une mécanique
      * @route POST /mechanics
-     * @param {AuthorInput.model} Author.body.required - Un objet contenant les informations d'un auteur
-     * @returns {Author} 200 - L'auteur créé
+     * @param {MechanicsInput.model} Mechanics.body.required - Un objet contenant les informations une mécanique
+     * @returns {Mechanics} 200 - La mécanique créée
      * @returns {Error} 500 - Auteur déjà présent dans la BDD
      */
-    .post(validate.body(schemas.authorInsertSchema), controllerFactory.add('author'));
+    .post(validate.body(schemas.mechanicsInsertSchema), controllerFactory.add('mechanics'));
 
 
     router.route('/mechanics/:id(\\d+)')
@@ -192,22 +192,22 @@ router.route('/authors')
      */
     .get(mechanicsController.getById)
     /**
-     * Mise à jour d'un auteur
+     * Mise à jour d'une mécanique
      * @route PATCH /mechanics/{id}
-     * @param {number} id - Identifiant de l'auteur
-     * @param {AuthorInput.model} Author.body.required - Un objet  contenant les informations partiels d'un auteur
-     * @returns {Author.model} 200 - L'auteur créé
+     * @param {number} id - Identifiant de la mécanique
+     * @param {MechanicsInput.model} Mechanics.body.required - Un objet  contenant les informations partiels d'une mécanique
+     * @returns {Mechanics.model} 200 - La mécanique créé
      * @returns {Error} 500 - Une erreur serveur
      */
-    .patch(validate.body(schemas.authorUpdateSchema), controllerFactory.update('author'))
+    .patch(validate.body(schemas.mechanicsUpdateSchema), controllerFactory.update('mechanics'))
     /**
-     * Un auteur
+     * Une mécanique
      * @route DELETE /mechanics/{id}
-     * @param {number} id - Identifiant de l'auteur
-     * @returns {Author} 204 - <empty content>
+     * @param {number} id - Identifiant de la mécanique
+     * @returns {Mechanics} 204 - <empty content>
      * @returns {Error} 500 - Une erreur serveur
      */
-    .delete(controllerFactory.delete('author'));
+    .delete(controllerFactory.delete('mechanics'));
 
 
 // Resource Not Found

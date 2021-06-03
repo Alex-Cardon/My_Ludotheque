@@ -119,3 +119,23 @@ GET http://localhost:3000/api/mechanics
 
 ### Récupération dune mécanique
 GET http://localhost:3000/api/mechanics/4
+
+### Ajout d'une mécanique
+POST http://localhost:3000/api/mechanics
+Content-Type: application/json
+
+{
+    "label": "test"
+}
+
+### Update d'une mechanics
+PATCH http://localhost:3000/api/mechanics/7
+Content-Type: application/json
+
+{
+    "label": "tests"
+}
+
+### delete d'une mécanique
+DELETE http://localhost:3000/api/mechanics/7
+
