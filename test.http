@@ -139,3 +139,32 @@ Content-Type: application/json
 ### delete d'une mécanique
 DELETE http://localhost:3000/api/mechanics/7
 
+
+
+_____________________________________________________
+_____________________________________________________
+
+### Récupération de toutes les thèmes
+GET http://localhost:3000/api/themes
+
+### Récupération d'un thème
+GET http://localhost:3000/api/themes/3
+
+### Ajout d'un thème
+POST http://localhost:3000/api/themes
+Content-Type: application/json
+
+{
+    "label": "test"
+}
+
+### Update d'un thème
+PATCH http://localhost:3000/api/themes/3
+Content-Type: application/json
+
+{
+    "label": "tests"
+}
+
+### delete d'un thème
+DELETE http://localhost:3000/api/themes/3

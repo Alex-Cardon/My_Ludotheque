@@ -14,6 +14,7 @@ const authorController = require('../controllers/authorController');
 const publisherController = require('../controllers/publisherController');
 const gameController = require('../controllers/gameControlle');
 const mechanicsController = require('../controllers/mechanicsController');
+const themeController = require('../controllers/themeController');
 const errorController = require('../controllers/errorController');
 
 const router = express.Router();
@@ -166,9 +167,9 @@ router.route('/authors')
 
     router.route('/mechanics')
     /**
-     * Liste des méchaniques
+     * Liste des thèmes
      * @route GET /mechanics
-     * @returns {Mechanics[]} 200 - La liste des méchaniques
+     * @returns {Mechanics[]} 200 - La liste des thèmes
      * @returns {Error} 500 - Une erreur serveur
      */
     .get(cache.route('mechanics'), controllerFactory.getAll('mechanics'))
@@ -177,7 +178,7 @@ router.route('/authors')
      * @route POST /mechanics
      * @param {MechanicsInput.model} Mechanics.body.required - Un objet contenant les informations une mécanique
      * @returns {Mechanics} 200 - La mécanique créée
-     * @returns {Error} 500 - Auteur déjà présent dans la BDD
+     * @returns {Error} 500 - Mécanique déjà présente dans la BDD
      */
     .post(validate.body(schemas.mechanicsInsertSchema), controllerFactory.add('mechanics'));
 
@@ -208,6 +209,56 @@ router.route('/authors')
      * @returns {Error} 500 - Une erreur serveur
      */
     .delete(controllerFactory.delete('mechanics'));
+
+
+
+
+    router.route('/themes')
+    /**
+     * Liste des thèmes
+     * @route GET /theme
+     * @returns {Theme[]} 200 - La liste des thèmes
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .get(cache.route('theme'), controllerFactory.getAll('theme'))
+    /**
+     * Ajouter un thème
+     * @route POST /theme
+     * @param {ThemeInput.model} Theme.body.required - Un objet contenant les informations d'un thème
+     * @returns {Theme} 200 - Le thème créée
+     * @returns {Error} 500 - Thème déjà présent dans la BDD
+     */
+    .post(validate.body(schemas.themeInsertSchema), controllerFactory.add('theme'));
+
+
+    router.route('/themes/:id(\\d+)')
+    /**
+     * Un thème
+     * @route GET /theme/{id}
+     * @param {number} id - Identifiant du thème
+     * @returns {Theme.model} 200 - Le thème
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .get(themeController.getById)
+    /**
+     * Mise à jour d'un thème
+     * @route PATCH /theme/{id}
+     * @param {number} id - Identifiant du thème
+     * @param {ThemeInput.model} Theme.body.required - Un objet  contenant les informations partiels d'un thème
+     * @returns {Theme.model} 200 - Le thème créé
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .patch(validate.body(schemas.themeUpdateSchema), controllerFactory.update('theme'))
+    /**
+     * Un thème
+     * @route DELETE /theme/{id}
+     * @param {number} id - Identifiant du thème
+     * @returns {Theme} 204 - <empty content>
+     * @returns {Error} 500 - Une erreur serveur
+     */
+    .delete(controllerFactory.delete('theme'));
+
+
 
 
 // Resource Not Found

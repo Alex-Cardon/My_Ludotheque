@@ -6,3 +6,4 @@ author_functions 2021-06-02T08:14:57Z alex <pierrealexandre.cardon@gmail.com> # 
 publisher_functions 2021-06-02T09:14:24Z alex <pierrealexandre.cardon@gmail.com> # function to add/update/delete publisher
 game_functions 2021-06-02T18:33:57Z alex <pierrealexandre.cardon@gmail.com> # functions to add/update/delete from table game
 mechanics_functions 2021-06-03T16:33:23Z alex <pierrealexandre.cardon@gmail.com> # function add/update/delete mechanics
+theme_function 2021-06-03T16:51:38Z alex <pierrealexandre.cardon@gmail.com> # function to add/update/delete themes
